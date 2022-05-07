@@ -1,0 +1,87 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MIM.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MW_LEFT" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MW_TOP" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MW_WIDTH" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="MW_HEIGHT" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="optionsT1_source" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\ni88\Desktop\</Value>
+    </Setting>
+    <Setting Name="optionsT1_destination" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\ni88\Desktop\custom\</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature1_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature2_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature3_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature4_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature5_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature6_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature7_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature8_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature9_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="syncxml_Info" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="optionsT3_Feature1_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="optionsT3_Feature2_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="optionsT3_Feature3_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="optionsT3_Feature4_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="optionsT3_Feature5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Public\Documents\</Value>
+    </Setting>
+    <Setting Name="optionsT3_Feature6" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\ni88\Desktop\workspace\</Value>
+    </Setting>
+    <Setting Name="optionsT3_Feature7" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.H</Value>
+    </Setting>
+    <Setting Name="SQL_DATASOURCE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">HSNI-WIN\SQLEXPRESS</Value>
+    </Setting>
+    <Setting Name="SQL_DATABASE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">VC</Value>
+    </Setting>
+    <Setting Name="SQL_USER" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Nirschl</Value>
+    </Setting>
+    <Setting Name="SQL_PASSWORD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">U111</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
