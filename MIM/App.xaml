@@ -421,7 +421,7 @@
                     <Trigger.EnterActions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Duration="0:0:0.20" To="150" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation Duration="0:0:0.20" To="225" Storyboard.TargetProperty="Width" />
                             </Storyboard>
                         </BeginStoryboard>
                     </Trigger.EnterActions>

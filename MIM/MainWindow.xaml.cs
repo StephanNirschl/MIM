@@ -108,6 +108,8 @@ namespace MIM
                     g_wkz.Visibility = Visibility.Hidden;
                     g_NCup.Visibility = Visibility.Hidden;
                     g_about.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
                 }
 
                 else if (g_wkz.Visibility == Visibility.Hidden)
@@ -117,6 +119,8 @@ namespace MIM
                     g_Vc.Visibility = Visibility.Hidden;
                     g_NCup.Visibility = Visibility.Hidden;
                     g_about.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
                 }
 
             }
@@ -142,6 +146,8 @@ namespace MIM
                     g_wkz.Visibility = Visibility.Hidden;
                     g_NCup.Visibility = Visibility.Hidden;
                     g_about.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
                 }
 
                 else if (g_Vc.Visibility == Visibility.Hidden)
@@ -151,6 +157,8 @@ namespace MIM
                     g_wkz.Visibility = Visibility.Hidden;
                     g_NCup.Visibility = Visibility.Hidden;
                     g_about.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
                 }
 
             }
@@ -175,6 +183,8 @@ namespace MIM
                     g_wkz.Visibility = Visibility.Hidden;
                     g_NCup.Visibility = Visibility.Hidden;
                     g_about.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
                 }
 
                 else if (g_NCup.Visibility == Visibility.Hidden)
@@ -184,10 +194,47 @@ namespace MIM
                     g_Vc.Visibility = Visibility.Hidden;
                     g_wkz.Visibility = Visibility.Hidden;
                     g_about.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
 
                 }
 
             }
+            catch (Exception u)
+            {
+                _ = MessageBox.Show("" + u);
+            }
+        }
+
+        private void PM_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                if (g_pm.Visibility == Visibility.Visible)
+
+                {
+                    g_Vc.Visibility = Visibility.Hidden;
+                    g_wkz.Visibility = Visibility.Hidden;
+                    g_NCup.Visibility = Visibility.Hidden;
+                    g_about.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
+                }
+
+                else if (g_pm.Visibility == Visibility.Hidden)
+
+                {
+                    g_pm.Visibility = Visibility.Visible;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_about.Visibility = Visibility.Hidden;
+                    g_wkz.Visibility = Visibility.Hidden;
+                    g_Vc.Visibility = Visibility.Hidden;
+                    g_NCup.Visibility = Visibility.Hidden;
+                }
+
+            }
+
             catch (Exception u)
             {
                 _ = MessageBox.Show("" + u);
@@ -207,6 +254,8 @@ namespace MIM
                     g_wkz.Visibility = Visibility.Hidden;
                     g_NCup.Visibility = Visibility.Hidden;
                     g_about.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
                 }
 
                 else if (g_about.Visibility == Visibility.Hidden)
@@ -216,6 +265,8 @@ namespace MIM
                     g_wkz.Visibility = Visibility.Hidden;
                     g_Vc.Visibility = Visibility.Hidden;
                     g_NCup.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
                 }
 
             }
@@ -229,7 +280,39 @@ namespace MIM
         private void SETTINGS_Click(object sender, RoutedEventArgs e)
         {
 
+            try
+            {
+
+                if (g_set.Visibility == Visibility.Visible)
+
+                {
+                    g_Vc.Visibility = Visibility.Hidden;
+                    g_wkz.Visibility = Visibility.Hidden;
+                    g_NCup.Visibility = Visibility.Hidden;
+                    g_about.Visibility = Visibility.Hidden;
+                    g_set.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
+                }
+
+                else if (g_set.Visibility == Visibility.Hidden)
+
+                {
+                    g_set.Visibility = Visibility.Visible;
+                    g_about.Visibility = Visibility.Hidden;
+                    g_wkz.Visibility = Visibility.Hidden;
+                    g_Vc.Visibility = Visibility.Hidden;
+                    g_NCup.Visibility = Visibility.Hidden;
+                    g_pm.Visibility = Visibility.Hidden;
+                }
+
+            }
+
+            catch (Exception u)
+            {
+                _ = MessageBox.Show("" + u);
+            }
         }
+
 
 
 
@@ -1822,7 +1905,25 @@ namespace MIM
             }
         }
 
+        #endregion ===========================================  NC REWORK  ===============================================
 
+
+
+        #region ============================================== PROJEKT MANAGER ===============================================
+
+        private static void ReadSingleRow(IDataRecord dataRecord)
+        {
+            Console.WriteLine(String.Format("{0}, {1}", dataRecord[0], dataRecord[1]));
+        }
+
+
+        #endregion ==============================================  PROJEKT MANAGER ===============================================
+
+
+
+
+
+        #region ==============================================  SETTINGS ===============================================
         private void Btn_UPDATE_SQL_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("Getting Connection ...");
@@ -1866,8 +1967,6 @@ namespace MIM
                 conn = null;
             }
         }
-
-
         private void CHECK_SQL_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("Getting Connection ...");
@@ -1912,16 +2011,7 @@ namespace MIM
             }
         }
 
-
-
-        private static void ReadSingleRow(IDataRecord dataRecord)
-        {
-            Console.WriteLine(String.Format("{0}, {1}", dataRecord[0], dataRecord[1]));
-        }
-
-
-        #endregion ===========================================  NC REWORK  ===============================================
-
+        #endregion ==============================================  SETTINGS ===============================================
 
 
         #region ==============================================  ABOUT ===============================================
@@ -1963,7 +2053,7 @@ namespace MIM
             try
             {
                 myProcess.StartInfo.UseShellExecute = true;
-                myProcess.StartInfo.FileName = "https://github.com/StephanNirschl/MIMIR";
+                myProcess.StartInfo.FileName = "https://github.com/StephanNirschl/MIM";
                 myProcess.Start();
 
             }
@@ -1975,10 +2065,11 @@ namespace MIM
         }
 
 
+
+
+
+
         #endregion ==============================================ABOUT================================================
-
-
-
 
 
     }
