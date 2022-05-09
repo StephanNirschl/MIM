@@ -241,7 +241,7 @@ namespace MIM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool optionsT3_Feature3_check {
             get {
                 return ((bool)(this["optionsT3_Feature3_check"]));
@@ -344,6 +344,18 @@ namespace MIM.Properties {
             }
             set {
                 this["SQL_PASSWORD"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool optionsT1_Feature99_check {
+            get {
+                return ((bool)(this["optionsT1_Feature99_check"]));
+            }
+            set {
+                this["optionsT1_Feature99_check"] = value;
             }
         }
     }

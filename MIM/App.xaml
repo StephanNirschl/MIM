@@ -321,7 +321,7 @@
         <Style x:Key="ScrollViewer" TargetType="{x:Type ScrollViewer}">
 
             <Setter Property="OverridesDefaultStyle" Value="True" />
-            <Setter Property="Width" Value="500 " />
+            <Setter Property="Width" Value="800 " />
             <Setter Property="Height" Value="Auto" />
             <Setter Property="Background">
                 <Setter.Value>
@@ -402,17 +402,11 @@
         <Style x:Key="sp_sidebar" TargetType="{x:Type StackPanel}">
             <Setter Property="Width" Value="50"/>
             <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Background" Value="#FF1B1B1B"/>
             <Setter Property="Margin" Value="5,0,0,0"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
            
             
-            <Setter Property="Grid.Background">
-                <Setter.Value>
-                    <SolidColorBrush Color="#FF252525" Opacity="0.9"/>
-                </Setter.Value>
-            </Setter>
 
 
 
@@ -437,7 +431,16 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
+        <Style x:Key="sidebar" TargetType="{x:Type DockPanel}">
+            <Setter Property="Margin" Value="1,1,1,1"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="#FF3E3E3E" Opacity="0.7"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <!-- side bar END -->
 
 
@@ -598,7 +601,7 @@
                     <Trigger.EnterActions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Duration="0:0:0.20" To="360" Storyboard.TargetProperty="Height" />
+                                <DoubleAnimation Duration="0:0:0.20" To="370" Storyboard.TargetProperty="Height" />
                                 <DoubleAnimation Duration="0:0:0.20" To="470" Storyboard.TargetProperty="Width" />
                             </Storyboard>
                         </BeginStoryboard>

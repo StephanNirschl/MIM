@@ -36,13 +36,22 @@ namespace MIM
             SetProperties();
             Info();
 
-
+            
             worker.WorkerReportsProgress = true;
             worker.DoWork += worker_DoWork;
             worker.ProgressChanged += worker_ProgressChanged;
 
 
+            if (Settings.Default.optionsT1_Feature99_check == true)
+                {
+                 Start_sync_Click();
+                }
+
+
+
         }
+
+
 
 
         #region ==============================================WindowsLeiste================================================
@@ -225,7 +234,7 @@ namespace MIM
                 else if (g_pm.Visibility == Visibility.Hidden)
 
                 {
-                    g_pm.Visibility = Visibility.Visible;
+                    g_pm.Visibility = Visibility.Hidden;    //g_pm.Visibility = Visibility.Visible;
                     g_set.Visibility = Visibility.Hidden;
                     g_about.Visibility = Visibility.Hidden;
                     g_wkz.Visibility = Visibility.Hidden;
@@ -330,6 +339,57 @@ namespace MIM
 
         // Filewatcher
         FileSystemWatcher FSW;
+
+        private void Start_sync_Click()
+        {
+
+
+            try
+            {
+                // gui log leeren
+                Settings.Default.syncxml_Info = "";
+
+                // Buttons available
+                btn_Start_sync.IsEnabled = false;
+                btn_stop_sync.IsEnabled = true;
+                Grid_Setting.IsEnabled = false;
+
+                // PFad zum überwachen aus Settings lesen
+                string path = Settings.Default.optionsT1_source;
+
+                // Create a new FileSystemWatcher and set its properties.
+                FSW = new FileSystemWatcher
+                {
+                    Path = @path,
+
+                    // Only watch text files.      
+                    Filter = "*.xml"
+                };
+
+                //FSW.Changed += new FileSystemEventHandler(FSW_Changed);
+                FSW.Created += new FileSystemEventHandler(FSW_Created);
+                //FSW.Deleted += new FileSystemEventHandler(FSW_Deleted);
+                //FSW.Renamed += new RenamedEventHandler(FSW_Renamed);
+
+                // Begin watching.      
+                FSW.EnableRaisingEvents = true;
+
+                // write Status to xaml
+                status.Content = "FILEWATCHER RUN";
+                status.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0xA3, 0xE2, 0x8B));
+
+                LogINIT();
+
+
+            }
+
+            catch (Exception u)
+            {
+                MessageBox.Show("" + u);
+            }
+
+        }
+
         public void Btn_Start_sync_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -395,7 +455,7 @@ namespace MIM
                 {
 
 
-                    Thread.Sleep(500);  // Warte...
+                    Thread.Sleep(800);  // Warte...
 
                     Task.Run(() =>
                     {
@@ -1266,12 +1326,12 @@ namespace MIM
 
 
                             // TEXT fuer LOG
-                            _ = sb.Append("\n" + "--> ISO Kupplung erzeugt: " + COUP + " -- " + COUPISO);
+                            _ = sb.Append("\n" + "^--> ISO Kupplung erzeugt: " + COUP + " -- " + COUPISO);
                         }
 
                         else
                         {
-                            _ = sb.Append("\n" + "--> ISO Kupplung besteht bereits !!!!!");
+                            _ = sb.Append("\n" + " --> ISO Kupplung besteht bereits !!!!!");
                         }
                         
 
@@ -1345,7 +1405,7 @@ namespace MIM
 
             if (coupling40 != null)
             {
-                COUPLINGmachine = "HSK40E";
+                COUPLINGmachine = "HSK-E 40";
             }
             else if (coupling63 != null)
             {
@@ -1582,7 +1642,7 @@ namespace MIM
                             foreach (Match match in rgx1.Matches(sea))
                             {
                                 string v = match.Value;
-                                tb_AusgabeVCINFO.Inlines.Add(new Run("   " + v + "\n") { Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0xD8, 0x96, 0x47)), FontWeight = FontWeights.Bold });
+                                tb_AusgabeVCINFO.Inlines.Add(new Run("   " + v + "\n") { Foreground = Brushes.Red, FontWeight = FontWeights.Bold });
                             }
 
                         }
@@ -1608,7 +1668,7 @@ namespace MIM
                             foreach (Match match in rgx.Matches(sea))
                             {
                                 string v = match.Value;
-                                tb_AusgabeVCINFO.Inlines.Add(new Run(v + "\n") { Foreground = Brushes.Blue });
+                                tb_AusgabeVCINFO.Inlines.Add(new Run(v + "\n") { Foreground = Brushes.Yellow });
                             }
 
 
@@ -1623,7 +1683,7 @@ namespace MIM
                             foreach (Match match in rgx.Matches(sea))
                             {
                                 string v = match.Value;
-                                tb_AusgabeVCINFO.Inlines.Add(new Run(v + "\n") { Foreground = Brushes.BlueViolet });
+                                tb_AusgabeVCINFO.Inlines.Add(new Run(v + "\n") { Foreground = Brushes.Yellow });
                             }
 
 
@@ -1638,7 +1698,7 @@ namespace MIM
                             foreach (Match match in rgx.Matches(sea))
                             {
                                 string v = match.Value;
-                                tb_AusgabeVCINFO.Inlines.Add(new Run(v + "\n") { Foreground = Brushes.DeepSkyBlue });
+                                tb_AusgabeVCINFO.Inlines.Add(new Run(v + "\n") { Foreground = Brushes.Yellow });
                             }
 
                         }
@@ -1652,7 +1712,7 @@ namespace MIM
                             foreach (Match match in rgx.Matches(sea))
                             {
                                 string v = match.Value;
-                                tb_AusgabeVCINFO.Inlines.Add(new Run(v + "\n") { Foreground = Brushes.DarkRed });
+                                tb_AusgabeVCINFO.Inlines.Add(new Run(v + "\n") { Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0xD8, 0x96, 0x47)) });
                             }
 
                         }
@@ -1918,6 +1978,8 @@ namespace MIM
 
 
         #endregion ==============================================  PROJEKT MANAGER ===============================================
+
+
 
 
 

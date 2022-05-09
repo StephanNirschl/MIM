@@ -57,7 +57,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="optionsT3_Feature3_check" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="optionsT3_Feature4_check" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -82,6 +82,9 @@
     </Setting>
     <Setting Name="SQL_PASSWORD" Type="System.String" Scope="User">
       <Value Profile="(Default)">U111</Value>
+    </Setting>
+    <Setting Name="optionsT1_Feature99_check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

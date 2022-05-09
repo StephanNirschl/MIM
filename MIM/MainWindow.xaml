@@ -23,8 +23,8 @@
     <!-- WINDOWS RESOURCES -->
     <Window.Resources>
         <Style x:Key="Imagestyle" TargetType="Image">
-            <Setter Property="Width" Value="30"></Setter>
-            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Width" Value="28"></Setter>
+            <Setter Property="Height" Value="28"></Setter>
             <Setter Property="Margin" Value="10,10,10,10"></Setter>
         </Style>
         <Style x:Key="Flat_Button" TargetType="{x:Type Button}">
@@ -32,18 +32,17 @@
             <Setter Property="Height" Value="50"/>
             <Setter Property="Margin" Value="0"/>
             <Setter Property="FontFamily" Value="Arial Narrow"/>
-            <Setter Property="FontSize" Value="12px"/>
+            <Setter Property="FontSize" Value="14px"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Foreground">
                 <Setter.Value>
-                    <SolidColorBrush Opacity="1" Color="#FF8D8D8D"/>
+                    <SolidColorBrush Opacity="1" Color="Black"/>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Background"  >
-                <Setter.Value>
-                    <SolidColorBrush Opacity="1" Color="#FF1F1F1F"/>
-                </Setter.Value>
+            <Setter Property="Background" Value="{x:Null}"  >
+
             </Setter>
             <Setter Property="BorderBrush" Value="{x:Null}"/>
 
@@ -73,9 +72,6 @@
 
 
 
-
-
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"></RowDefinition>
@@ -94,70 +90,70 @@
         <!-- Workspace -->
         <Grid Grid.Row="1">
             <Grid.Background>
-                <ImageBrush ImageSource="/Images/wally.jpg"/>
+                <ImageBrush ImageSource="/Images/wally.jpg" Opacity="0.1"/>
             </Grid.Background>
 
             <Grid x:Name="grid1" Grid.Column="1" >
                 <Grid.Background>
-                    <SolidColorBrush Color="Black" Opacity="0.82"/>
+                    <SolidColorBrush Color="Black" Opacity="0.7"/>
                 </Grid.Background>
 
 
 
                 <!-- Sidebar -->
                 <StackPanel x:Name="sp_sidebar" Style="{StaticResource sp_sidebar}" Cursor="Hand" Panel.ZIndex="1">
-                    <DockPanel>
-                        <Image Source="/Images/ico/database.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="WKZ" Click="WKZ_Click" Content="WKZ" Style="{StaticResource Flat_Button}" x:FieldModifier="public" Cursor="Hand"/>
+                    <StackPanel.Background>
+                        <ImageBrush Opacity="0.8"/>
+                    </StackPanel.Background>
 
+
+                    <DockPanel Style="{StaticResource sidebar}">
+                        <Image Source="/Images/ico/databaseturn.png" Style="{StaticResource ResourceKey=Imagestyle}" />
+                        <Button x:Name="WKZ" Click="WKZ_Click" Content="WKZ" Style="{StaticResource Flat_Button}" x:FieldModifier="public" Cursor="Hand"/>
                     </DockPanel>
 
-                    <DockPanel>
+                    <DockPanel Style="{StaticResource sidebar}">
                         <Image Source="/Images/ico/repeat.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
                         <Button x:Name="VCParser" Click="VCParser_Click" Content="VC-PARSER" Style="{StaticResource Flat_Button}" />
-
                     </DockPanel>
 
-                    <DockPanel>
+                    <DockPanel Style="{StaticResource sidebar}">
                         <Image Source="/Images/ico/file.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
                         <Button x:Name="NCr" Click="NCr_Click" Content="NC_UPDATE" Style="{StaticResource Flat_Button}" Cursor="Hand" />
                     </DockPanel>
 
-                    <DockPanel>
+                    <DockPanel Style="{StaticResource sidebar}">
                         <Image Source="/Images/ico/database.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="PM" Click="PM_Click" Content="PROJECT_MANAGER" Style="{StaticResource Flat_Button}" Cursor="Hand" />
+                            <Button x:Name="PM" Click="PM_Click" Content="PROJECT_MANAGER" Style="{StaticResource Flat_Button}" Cursor="Hand" />
+                        </DockPanel>
 
-                    </DockPanel>
-
-                    <DockPanel>
+                    <DockPanel Style="{StaticResource sidebar}">
                         <Image  Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="Btn6"  Content="" Style="{StaticResource Flat_Button}" />
+                            <Button x:Name="Btn6"  Content="" Style="{StaticResource Flat_Button}" />
+                        </DockPanel>
 
-                    </DockPanel>
-
-                    <DockPanel>
+                    <DockPanel Style="{StaticResource sidebar}">
                         <Image Style="{StaticResource ResourceKey=Imagestyle}"/>
                         <Button x:Name="Btn_7"  Content="" Style="{StaticResource Flat_Button}" />
-
                     </DockPanel>
 
 
 
 
 
-                    <DockPanel >
+                    <DockPanel Style="{StaticResource sidebar}">
                         <Image Source="/Images/ico/settings.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
                         <Button x:Name="SETTINGS" Click="SETTINGS_Click" Content="SETTINGS" Style="{StaticResource Flat_Button}" />
 
                     </DockPanel>
 
-                    <DockPanel >
+                    <DockPanel Style="{StaticResource sidebar}">
                         <Image Source="/Images/ico/idea.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
                         <Button x:Name="INFO" Click="INFO_Click" Content="ABOUT" Style="{StaticResource Flat_Button}" />
 
                     </DockPanel>
 
-                    <DockPanel>
+                    <DockPanel Style="{StaticResource sidebar}">
                         <Image Source="/Images/ico/power.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
                         <Button x:Name="CLOSEd" Click="CLOSEd_Click" Content="CLOSE" Style="{StaticResource Flat_Button}" />
 
@@ -194,8 +190,6 @@
                                     />
 
 
-
-
                     <DockPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
                         <Button Click="Btn_Start_sync_Click"  
@@ -219,7 +213,6 @@
                     </DockPanel>
 
 
-
                     <DockPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" >
 
                         <Button Click="btn_showlog_Click" 
@@ -228,12 +221,6 @@
                                 Style="{StaticResource ButtonS1}" />
 
                     </DockPanel>
-
-
-
-
-
-
 
 
                     <DockPanel Grid.Row="3">
@@ -291,15 +278,6 @@
 
 
                     </DockPanel>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -392,6 +370,7 @@
                                     <RowDefinition Height="35"></RowDefinition>
                                     <RowDefinition Height="35"></RowDefinition>
                                     <RowDefinition Height="35"></RowDefinition>
+                                    <RowDefinition Height="35"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="215"></ColumnDefinition>
@@ -468,6 +447,13 @@
                                           IsChecked="{Binding Source={x:Static p:Settings.Default}, Path=optionsT1_Feature9_check, Mode=TwoWay}" 
                                 />
 
+                                <CheckBox x:Name="optionsT1_Feature99_des" 
+                                          Content="AUTOSTART FILEWATCHER"
+                                          Grid.Row="6" Grid.ColumnSpan="2" 
+                                          Style="{StaticResource SETTING_checkbox}"
+                                          IsChecked="{Binding Source={x:Static p:Settings.Default}, Path=optionsT1_Feature99_check, Mode=TwoWay}" 
+                                          HorizontalAlignment="Center" FontSize="13" 
+                                />
                             </Grid>
                         </Grid>
 
@@ -783,14 +769,22 @@
                                       x:Name="vc100"
                                       Style="{StaticResource ResourceKey=SETTING_checkbox}" 
                                       Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
-                                      VerticalAlignment="Center" Content="KOMMENTAR 'VC auf erhöhen wg. 100%" 
+                                      VerticalAlignment="Center" Content="KOMMENTAR PGM-Kopf hinzu 'f auf erhöhen wg. 100%" 
                                       IsChecked="{Binding Source={x:Static p:Settings.Default}, Path=optionsT3_Feature1_check, Mode=TwoWay}"
+                                      />
+
+                            <CheckBox 
+                                      x:Name="vc100up"
+                                      Style="{StaticResource SETTING_checkbox}" 
+                                      Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"
+                                      VerticalAlignment="Center" Content="Vorschübe automatisch auf 150% erhöhen" 
+                                      IsChecked="{Binding Source={x:Static p:Settings.Default}, Path=optionsT3_Feature3_check, Mode=TwoWay}"
                                       />
 
                             <CheckBox 
                                       x:Name="modulo"
                                       Style="{StaticResource SETTING_checkbox}" 
-                                      Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"
+                                      Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"
                                       VerticalAlignment="Center" Content="WARNUNG: 'KEIN MODULO PGM' ins NC-PGM schreiben" 
                                       IsChecked="{Binding Source={x:Static p:Settings.Default}, Path=optionsT3_Feature2_check, Mode=TwoWay}"
                                       />
@@ -801,7 +795,7 @@
                 </Grid>
 
 
-                <Grid x:Name="g_about" Visibility="Visible"
+                <Grid x:Name="g_about" Visibility="Hidden"
                       Margin="75,0,0,0"
                       VerticalAlignment="Stretch">
 
@@ -893,12 +887,19 @@
                                Grid.Row="0"
                                />
 
-                    <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <StackPanel.Background>
-                            <SolidColorBrush Color="Black" Opacity="0.4"/>
-                        </StackPanel.Background>
 
-                        <Grid  x:Name="Grid_Setting_sql"
+                    <DockPanel Grid.Row="1">
+
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5">
+                            <StackPanel.Background>
+                                <SolidColorBrush Color="Black" Opacity="0.4"/>
+                            </StackPanel.Background>
+
+                            <Border BorderBrush="#FF002494" BorderThickness="0.4,0.4,0.4,0.4" >
+
+
+
+                                <Grid  x:Name="Grid_Setting_sql"
                                    HorizontalAlignment="Left" 
                                    Grid.Column="1"
                                    IsEnabled="True" Cursor="Hand" 
@@ -907,69 +908,69 @@
                                    Width="420" Height="210" >
 
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"></ColumnDefinition>
-                                <ColumnDefinition Width="250"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                        <ColumnDefinition Width="250"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="0"></RowDefinition>
-                                <RowDefinition Height="0"></RowDefinition>
-                                <RowDefinition Height="0"></RowDefinition>
-                                <RowDefinition Height="0"></RowDefinition>
-                                <RowDefinition Height="30"></RowDefinition>
-                                <RowDefinition Height="30"></RowDefinition>
-                                <RowDefinition Height="30"></RowDefinition>
-                                <RowDefinition Height="30"></RowDefinition>
-                                <RowDefinition Height="30"></RowDefinition>
-                                <RowDefinition Height="30"></RowDefinition>
-                                <RowDefinition Height="30"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-
-
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0"></RowDefinition>
+                                        <RowDefinition Height="0"></RowDefinition>
+                                        <RowDefinition Height="0"></RowDefinition>
+                                        <RowDefinition Height="0"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
 
 
-                            <Label Content="SQL_CONNECTION"
+
+
+                                    <Label Content="SQL_CONNECTION"
                                        Style= "{StaticResource ResourceKey=SETTINGs_label}" 
                                        Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Center" FontWeight="Bold"/>
 
 
 
-                            <Label Content="SQL_DATASOURCE:"
+                                    <Label Content="SQL_DATASOURCE:"
                                        Style= "{StaticResource ResourceKey=SETTINGs_label}" 
                                        Grid.Column="0" Grid.Row="5" FontWeight="Normal"/>
 
-                            <TextBox Style="{StaticResource SETTINGs_tb}" 
+                                    <TextBox Style="{StaticResource SETTINGs_tb}" 
                                          Text="{Binding Source={x:Static p:Settings.Default}, Path=SQL_DATASOURCE, Mode=TwoWay}"
                                          Grid.Column="1" Grid.Row="5"/>
 
-                            <Label Content="SQL_DATABASE:"
+                                    <Label Content="SQL_DATABASE:"
                                        Style= "{StaticResource ResourceKey=SETTINGs_label}" 
                                        Grid.Column="0" Grid.Row="6" FontWeight="Normal"/>
 
-                            <TextBox Style="{StaticResource SETTINGs_tb}" 
+                                    <TextBox Style="{StaticResource SETTINGs_tb}" 
                                          Text="{Binding Source={x:Static p:Settings.Default}, Path=SQL_DATABASE, Mode=TwoWay}"
                                          Grid.Column="1" Grid.Row="6"/>
 
-                            <Label Content="SQL_USER:"
+                                    <Label Content="SQL_USER:"
                                        Style= "{StaticResource ResourceKey=SETTINGs_label}" 
                                         Grid.Column="0" Grid.Row="7" FontWeight="Normal"/>
 
-                            <TextBox Style="{StaticResource SETTINGs_tb}" 
+                                    <TextBox Style="{StaticResource SETTINGs_tb}" 
                                          Text="{Binding Source={x:Static p:Settings.Default}, Path=SQL_USER, Mode=TwoWay}"
                                          Grid.Column="1" Grid.Row="7"/>
 
-                            <Label Content="SQL_PASSWORD:"
+                                    <Label Content="SQL_PASSWORD:"
                                        Style= "{StaticResource ResourceKey=SETTINGs_label}" 
                                        Grid.Column="0" Grid.Row="8" FontWeight="Normal"/>
 
-                            <TextBox Style="{StaticResource SETTINGs_tb}" 
+                                    <TextBox Style="{StaticResource SETTINGs_tb}" 
                                          Text="{Binding Source={x:Static p:Settings.Default}, Path=SQL_PASSWORD, Mode=TwoWay}"
                                          Grid.Column="1" Grid.Row="8"/>
 
 
-                            <Button x:Name="CHECK_SQL"  
+                                    <Button x:Name="CHECK_SQL"  
                                         Click="CHECK_SQL_Click"
                                         Content="CHECK CONNECTION"
                                         Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10" 
@@ -977,7 +978,7 @@
                                         Style="{StaticResource ButtonS1}"/>
 
 
-                            <TextBox x:Name="TB_STATUS_SQL" 
+                                    <TextBox x:Name="TB_STATUS_SQL" 
                                          Style="{StaticResource SETTINGs_tb}" 
                                          Grid.Column="1" Grid.Row="10" 
                                          Width="130" 
@@ -986,9 +987,22 @@
 
 
 
-                        </Grid>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
 
-                    </StackPanel>
+
+
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,5,5">
+                            <Border BorderBrush="Red" BorderThickness="0.4,0.4,0.4,0.4"  >
+
+
+
+
+                            </Border>
+                        </StackPanel>
+
+                    </DockPanel>
 
                 </Grid>
 
@@ -999,6 +1013,8 @@
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
@@ -1015,20 +1031,92 @@
                                />
 
 
-                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                        
+
+                    <DockPanel  Grid.Row="1" HorizontalAlignment="Center">
+
+
+                        <Label Content="ArtikelNr.:" 
+                               Style="{StaticResource ResourceKey=SETTINGs_label}" 
+                               />
+
+                        <TextBox Width="120" 
+                                 Style="{StaticResource ResourceKey=SETTINGs_tb}"  
+                                 />
+
+                    </DockPanel>
+
+
+
+                    <DockPanel Grid.Row="2" HorizontalAlignment="Center" >
+
+                        <Button Content="Check IN" 
+                                Style="{StaticResource ButtonS1}" 
+                                Cursor="Hand" 
+                                Margin="5,0,5,0" 
+                                ></Button>
+
+                        <Button Content="Check OUT"
+                                Style="{StaticResource ButtonS1}" 
+                                Cursor="Hand" 
+                                Margin="5,0,5,0" 
+                                ></Button>
+
                         <Button x:Name="Btn_UPDATE_SQL"
                                 Content="UPDATE_SQL"
                                 Click="Btn_UPDATE_SQL_Click"
                                 Margin="5,0,5,0" 
-                                Style="{StaticResource ButtonS1}" />
-                        
-                        
-                        <Label Content="In Bearbeitung" Background="#FF629863">
-                        </Label>
+                                Style="{StaticResource ButtonS1}"
+                                ></Button>
 
-                    </StackPanel>
+                    </DockPanel>
+
+
+                    <DockPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+
+                        <ListView x:Name="lv_projekts" 
+                                  Style="{StaticResource lv_log}"
+                                  >
+
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource lvItem_log}">
+                                    <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="ARTIKEL" DisplayMemberBinding="{Binding Id}" Width="75" HeaderContainerStyle="{StaticResource lv_myHeaderStyle}"></GridViewColumn>
+                                    <GridViewColumn Header="STORAGE" DisplayMemberBinding="{Binding Date}" Width="75" HeaderContainerStyle="{StaticResource lv_myHeaderStyle}"></GridViewColumn>
+                                    <GridViewColumn Header="LAST USER" DisplayMemberBinding="{Binding Date}" Width="150" HeaderContainerStyle="{StaticResource lv_myHeaderStyle}"></GridViewColumn>
+                                    <GridViewColumn Header="LAST USE" DisplayMemberBinding="{Binding Date}" Width="100" HeaderContainerStyle="{StaticResource lv_myHeaderStyle}"></GridViewColumn>
+                                    <GridViewColumn Header="STATUS" DisplayMemberBinding="{Binding Date}" Width="100" HeaderContainerStyle="{StaticResource lv_myHeaderStyle}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+
+                            >
+                        </ListView>
+
+                    </DockPanel>
+
+
+
+                    <DockPanel  Grid.Row="4" HorizontalAlignment="Center">
+
+
+                        <Label Content="INFO:" 
+                               Style="{StaticResource ResourceKey=SETTINGs_label}" 
+                               />
+
+                        <TextBox Width="600" 
+                                 Style="{StaticResource ResourceKey=SETTINGs_tb}"  
+                                 />
+
+                    </DockPanel>
+
+
+
+
 
                 </Grid>
 

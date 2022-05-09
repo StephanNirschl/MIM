@@ -2,19 +2,20 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
     <AnalysisLevel>none</AnalysisLevel>
     <ApplicationIcon>Images\favicon.ico</ApplicationIcon>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
+    <AssemblyVersion>0.1.1.0</AssemblyVersion>
+    <FileVersion>0.1.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Images\favicon.ico" />
     <None Remove="Images\ico\database.png" />
+    <None Remove="Images\ico\databaseturn.png" />
     <None Remove="Images\ico\file.png" />
     <None Remove="Images\ico\idea.png" />
     <None Remove="Images\ico\mini.ico" />
@@ -27,6 +28,8 @@
     <None Remove="Images\ico\repeat.png" />
     <None Remove="Images\ico\settings.png" />
     <None Remove="Images\wally.jpg" />
+    <None Remove="Images\wp.png" />
+    <None Remove="Images\wp1.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +49,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\ico\database.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ico\databaseturn.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\ico\file.png">
@@ -68,6 +74,12 @@
     </Resource>
     <Resource Include="Images\ico\settings.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\wp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\wp1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
