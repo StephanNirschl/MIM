@@ -447,6 +447,13 @@
                                           IsChecked="{Binding Source={x:Static p:Settings.Default}, Path=optionsT1_Feature9_check, Mode=TwoWay}" 
                                 />
 
+                                <CheckBox x:Name="optionsT1_Feature10_des"
+                                          Content="SPLIT Name (old DB)"
+                                          Grid.Row="5" Grid.Column="1" 
+                                          Style="{StaticResource SETTING_checkbox}"
+                                          IsChecked="{Binding Source={x:Static p:Settings.Default}, Path=optionsT1_Feature10_check, Mode=TwoWay}" 
+                                />
+
                                 <CheckBox x:Name="optionsT1_Feature99_des" 
                                           Content="AUTOSTART FILEWATCHER"
                                           Grid.Row="6" Grid.ColumnSpan="2" 
@@ -840,9 +847,6 @@
                         </Label>
 
 
-                        <Label Content="Create by CoderBude Nitschko"
-                               Name="Lbl_developer"
-                               Style="{StaticResource About_Lbl}"></Label>
 
                     </StackPanel>
 

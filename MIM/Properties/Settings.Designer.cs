@@ -358,5 +358,17 @@ namespace MIM.Properties {
                 this["optionsT1_Feature99_check"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool optionsT1_Feature10_check {
+            get {
+                return ((bool)(this["optionsT1_Feature10_check"]));
+            }
+            set {
+                this["optionsT1_Feature10_check"] = value;
+            }
+        }
     }
 }

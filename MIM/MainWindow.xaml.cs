@@ -1209,7 +1209,7 @@ namespace MIM
                         }
                     }
 
-                    // ================================================================================FEATURE 8 (Adaptor ISO) 
+                    // ================================================================================FEATURE 9 (Adaptor ISO old DB) 
                     if (Settings.Default.optionsT1_Feature9_check == true)
                     {
                         XmlDocument xmlDoc = new();
@@ -1318,6 +1318,10 @@ namespace MIM
                             XmlNode nodereadXXX = xmlDoc.SelectSingleNode("/omtdx/holders/holder/coupling");
                             nodereadXXX.Attributes[2].Value = "isoAdaptor";
 
+                            // Change TYPE ATTRIBUT
+                            XmlNode nodereadXXXX = xmlDoc.SelectSingleNode("/omtdx/holders/holder/coupling");
+                            nodereadXXXX.Attributes[0].Value = COUP;
+
                             // ADD iso CODE ATTRIBUT
                             XmlAttribute attrXXX = xmlDoc.CreateAttribute("isoCode");
                             attrXXX.Value = COUPISO;
@@ -1326,7 +1330,7 @@ namespace MIM
 
 
                             // TEXT fuer LOG
-                            _ = sb.Append("\n" + "^--> ISO Kupplung erzeugt: " + COUP + " -- " + COUPISO);
+                            _ = sb.Append("\n" + " --> ISO Kupplung erzeugt: " + COUP + " -- " + COUPISO);
                         }
 
                         else
@@ -1339,9 +1343,86 @@ namespace MIM
 
                     }
 
+                    // ================================================================================FEATURE 10 (SPLIT NAME old DB) 
+                    if (Settings.Default.optionsT1_Feature10_check == true)
+                    {
+                        XmlDocument xmlDoc = new();
+                        xmlDoc.Load(path1);             // xml laden
+
+
+
+                        // Lese bestehenden Werkzeugnamen
+                        XmlNode node = xmlDoc.SelectSingleNode("omtdx/ncTools/ncTools/ncTool");
+
+
+                        if (node != null)
+                        {
+                            var bNcname = node.Attributes["name"].Value;
+
+                            string str = bNcname.ToString();
+
+
+                            String[] spearator = { " -- "};
+
+                            // using the method
+                            String[] strlist = str.Split(spearator,
+                               StringSplitOptions.RemoveEmptyEntries);
+
+
+                            if (strlist[0] != null)
+                            {
+                                // Schreibe neuen Werkzeugnamen
+                                node.Attributes[1].Value = strlist[0];
+                                _ = sb.Append("\n" + " --> SPILT NAME: NameWkz geändert auf -> " + strlist[0]);
+                            }
+                            else
+                            {
+                                _ = sb.Append("\n" + " --> SPLIT NAME do not works");
+                            }
+
+
+
+                            if (strlist[1] != null)
+                            {
+                                //Create a new node (coupling)
+                                XmlNode noderead2 = xmlDoc.SelectSingleNode("/omtdx/ncTools/ncTools/ncTool"); // zum Knoten navigieren
+                                XmlElement elem2 = xmlDoc.CreateElement("param");             // Knoten erstellen
+                                noderead2.InsertBefore(elem2, noderead2.FirstChild);              // Knoten einfügen
+
+                                XmlNode noderead22 = xmlDoc.SelectSingleNode("/omtdx/ncTools/ncTools/ncTool/param");    // zum Knoten navigieren
+                                XmlAttribute attr1 = xmlDoc.CreateAttribute("name");                          // Attribut estellen
+                                attr1.Value = "comment";                                                   // Wert des Attributes erstellen
+                                noderead22.Attributes.SetNamedItem(attr1);                                    // Attribut mit Wert einfügen
+
+                                XmlNode noderead222 = xmlDoc.SelectSingleNode("/omtdx/ncTools/ncTools/ncTool/param");    // zum Knoten navigieren
+                                XmlAttribute attr2 = xmlDoc.CreateAttribute("value");                          // Attribut estellen
+                                attr2.Value = strlist[1];                                                   // Wert des Attributes erstellen
+                                noderead222.Attributes.SetNamedItem(attr2);
+
+
+                                _ = sb.Append("\n" + " --> SPILT NAME: Kommentar hinzugefügt -> " + strlist[1]);
+                            }
+
+                            else 
+                            {
+                                _ = sb.Append("\n" + " --> SPLIT NAME do not works");
+                            }
+
+
+                        }
+                        else 
+                        {
+                            _ = sb.Append("\n" + " --> SPLIT NAME do not works" );
+                        }
+
+                        xmlDoc.Save(path1);
+                    }
+
+
+
                     // ================================================================================verschiebe Datei
 
-                    if (Directory.Exists(TARGETXML))
+                            if (Directory.Exists(TARGETXML))
                     {
                         File.Move(xmlList[0], @TARGETXML + filename, true);
                         _ = sb.Append("\n" + " --> File moved to:      " + @TARGETXML);
