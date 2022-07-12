@@ -436,7 +436,10 @@
             <Setter Property="Margin" Value="1,1,1,1"/>
             <Setter Property="Background">
                 <Setter.Value>
-                    <SolidColorBrush Color="#FF3E3E3E" Opacity="0.7"/>
+                    <LinearGradientBrush Opacity="0.6"  >
+                        <GradientStop Color="#FF212121" Offset="0"/>
+                        <GradientStop Color="#FF3C3C3C" Offset="1"/>
+                    </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
         </Style>

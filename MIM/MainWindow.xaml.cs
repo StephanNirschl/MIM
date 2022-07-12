@@ -1216,128 +1216,138 @@ namespace MIM
                         xmlDoc.Load(path1);             // xml laden
 
                         XmlNode coupling = xmlDoc.SelectSingleNode("/omtdx/holders/holder/coupling[@type='isoAdaptor']");
+                        XmlNode node = xmlDoc.SelectSingleNode("/omtdx/holders/holder");
 
-                        if (coupling == null)
+                        if (node != null)  // Abfrage ob Halterknoten in XML existiert
                         {
-                           
-                            // COUPLING DEFINITION IN XML
-                            string COUP = COUPLING(path1);
-                            string COUPISO = COUPLINGISO(path1);
+
+                            if (coupling == null)
+                            {
+
+                                // COUPLING DEFINITION IN XML
+                                string COUP = COUPLING(path1);
+                                string COUPISO = COUPLINGISO(path1);
 
 
 
-                            //Create a new node (couplings)
-                            XmlNode noderead1 = xmlDoc.SelectSingleNode("/omtdx");   // zum Knoten navigieren
-                            XmlElement elem1 = xmlDoc.CreateElement("couplings");    // Knoten erstellen
-                            noderead1.InsertBefore(elem1, noderead1.LastChild);      // Knoten einfügen
+                                //Create a new node (couplings)
+                                XmlNode noderead1 = xmlDoc.SelectSingleNode("/omtdx");   // zum Knoten navigieren
+                                XmlElement elem1 = xmlDoc.CreateElement("couplings");    // Knoten erstellen
+                                noderead1.InsertBefore(elem1, noderead1.LastChild);      // Knoten einfügen
 
 
-                            //Create a new node (coupling)
-                            XmlNode noderead2 = xmlDoc.SelectSingleNode("/omtdx/couplings"); // zum Knoten navigieren
-                            XmlElement elem2 = xmlDoc.CreateElement("coupling");             // Knoten erstellen
-                            noderead2.InsertBefore(elem2, noderead2.LastChild);              // Knoten einfügen
-                                                                                             // Create new Attribute
-                            XmlNode noderead22 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");    // zum Knoten navigieren
-                            XmlAttribute attr1 = xmlDoc.CreateAttribute("type");                          // Attribut estellen
-                            attr1.Value = "isoAdaptor";                                                   // Wert des Attributes erstellen
-                            noderead22.Attributes.SetNamedItem(attr1);                                    // Attribut mit Wert einfügen
-
-
-
-                            //Create a new node (param)
-                            XmlNode noderead3 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");
-                            XmlElement elem3 = xmlDoc.CreateElement("param");
-                            noderead3.InsertBefore(elem3, noderead3.FirstChild);
-                            // Create new Attribute
-                            XmlNode noderead33 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
-                            XmlAttribute attr2 = xmlDoc.CreateAttribute("name");
-                            attr2.Value = "lengthOfUnit";
-                            noderead33.Attributes.SetNamedItem(attr2);
-                            // Create new Attribute2
-                            XmlNode noderead333 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
-                            XmlAttribute attr3 = xmlDoc.CreateAttribute("value");
-                            attr3.Value = "mm";
-                            noderead333.Attributes.SetNamedItem(attr3);
-
-
-                            //Create a new node (param)
-                            XmlNode noderead4 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");
-                            XmlElement elem4 = xmlDoc.CreateElement("param");
-                            noderead4.InsertBefore(elem4, noderead4.FirstChild);
-                            // Create new Attribute
-                            XmlNode noderead44 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
-                            XmlAttribute attr4 = xmlDoc.CreateAttribute("name");
-                            attr4.Value = "gagePointOffset";
-                            noderead44.Attributes.SetNamedItem(attr4);
-                            // Create new Attribute2
-                            XmlNode noderead444 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
-                            XmlAttribute attr44 = xmlDoc.CreateAttribute("value");
-                            attr44.Value = "0";
-                            noderead444.Attributes.SetNamedItem(attr44);
-
-
-                            //Create a new node (param)
-                            XmlNode noderead5 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");
-                            XmlElement elem5 = xmlDoc.CreateElement("param");
-                            noderead5.InsertBefore(elem5, noderead5.FirstChild);
-                            // Create new Attribute
-                            XmlNode noderead55 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
-                            XmlAttribute attr5 = xmlDoc.CreateAttribute("name");
-                            attr5.Value = "isoCode";
-                            noderead55.Attributes.SetNamedItem(attr5);
-                            // Create new Attribute2
-                            XmlNode noderead555 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
-                            XmlAttribute attr55 = xmlDoc.CreateAttribute("value");
-                            attr55.Value = COUPISO;
-                            noderead555.Attributes.SetNamedItem(attr55);
+                                //Create a new node (coupling)
+                                XmlNode noderead2 = xmlDoc.SelectSingleNode("/omtdx/couplings"); // zum Knoten navigieren
+                                XmlElement elem2 = xmlDoc.CreateElement("coupling");             // Knoten erstellen
+                                noderead2.InsertBefore(elem2, noderead2.LastChild);              // Knoten einfügen
+                                                                                                 // Create new Attribute
+                                XmlNode noderead22 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");    // zum Knoten navigieren
+                                XmlAttribute attr1 = xmlDoc.CreateAttribute("type");                          // Attribut estellen
+                                attr1.Value = "isoAdaptor";                                                   // Wert des Attributes erstellen
+                                noderead22.Attributes.SetNamedItem(attr1);                                    // Attribut mit Wert einfügen
 
 
 
-                            //Create a new node (param)
-                            XmlNode noderead6 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");
-                            XmlElement elem6 = xmlDoc.CreateElement("param");
-                            noderead6.InsertBefore(elem6, noderead6.FirstChild);
-                            // Create new Attribute
-                            XmlNode noderead66 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
-                            XmlAttribute attr6 = xmlDoc.CreateAttribute("name");
-                            attr6.Value = "class";
-                            noderead66.Attributes.SetNamedItem(attr6);
-                            // Create new Attribute2
-                            XmlNode noderead666 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
-                            XmlAttribute attr66 = xmlDoc.CreateAttribute("value");
-                            attr66.Value = COUP;
-                            noderead666.Attributes.SetNamedItem(attr66);
+                                //Create a new node (param)
+                                XmlNode noderead3 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");
+                                XmlElement elem3 = xmlDoc.CreateElement("param");
+                                noderead3.InsertBefore(elem3, noderead3.FirstChild);
+                                // Create new Attribute
+                                XmlNode noderead33 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
+                                XmlAttribute attr2 = xmlDoc.CreateAttribute("name");
+                                attr2.Value = "lengthOfUnit";
+                                noderead33.Attributes.SetNamedItem(attr2);
+                                // Create new Attribute2
+                                XmlNode noderead333 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
+                                XmlAttribute attr3 = xmlDoc.CreateAttribute("value");
+                                attr3.Value = "mm";
+                                noderead333.Attributes.SetNamedItem(attr3);
+
+
+                                //Create a new node (param)
+                                XmlNode noderead4 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");
+                                XmlElement elem4 = xmlDoc.CreateElement("param");
+                                noderead4.InsertBefore(elem4, noderead4.FirstChild);
+                                // Create new Attribute
+                                XmlNode noderead44 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
+                                XmlAttribute attr4 = xmlDoc.CreateAttribute("name");
+                                attr4.Value = "gagePointOffset";
+                                noderead44.Attributes.SetNamedItem(attr4);
+                                // Create new Attribute2
+                                XmlNode noderead444 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
+                                XmlAttribute attr44 = xmlDoc.CreateAttribute("value");
+                                attr44.Value = "0";
+                                noderead444.Attributes.SetNamedItem(attr44);
+
+
+                                //Create a new node (param)
+                                XmlNode noderead5 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");
+                                XmlElement elem5 = xmlDoc.CreateElement("param");
+                                noderead5.InsertBefore(elem5, noderead5.FirstChild);
+                                // Create new Attribute
+                                XmlNode noderead55 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
+                                XmlAttribute attr5 = xmlDoc.CreateAttribute("name");
+                                attr5.Value = "isoCode";
+                                noderead55.Attributes.SetNamedItem(attr5);
+                                // Create new Attribute2
+                                XmlNode noderead555 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
+                                XmlAttribute attr55 = xmlDoc.CreateAttribute("value");
+                                attr55.Value = COUPISO;
+                                noderead555.Attributes.SetNamedItem(attr55);
 
 
 
-                            // COUPLING Aufruf IN XML
+                                //Create a new node (param)
+                                XmlNode noderead6 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling");
+                                XmlElement elem6 = xmlDoc.CreateElement("param");
+                                noderead6.InsertBefore(elem6, noderead6.FirstChild);
+                                // Create new Attribute
+                                XmlNode noderead66 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
+                                XmlAttribute attr6 = xmlDoc.CreateAttribute("name");
+                                attr6.Value = "class";
+                                noderead66.Attributes.SetNamedItem(attr6);
+                                // Create new Attribute2
+                                XmlNode noderead666 = xmlDoc.SelectSingleNode("/omtdx/couplings/coupling/param");
+                                XmlAttribute attr66 = xmlDoc.CreateAttribute("value");
+                                attr66.Value = COUP;
+                                noderead666.Attributes.SetNamedItem(attr66);
 
 
 
-                            // Change TYPE ATTRIBUT
-                            XmlNode nodereadXXX = xmlDoc.SelectSingleNode("/omtdx/holders/holder/coupling");
-                            nodereadXXX.Attributes[2].Value = "isoAdaptor";
-
-                            // Change TYPE ATTRIBUT
-                            XmlNode nodereadXXXX = xmlDoc.SelectSingleNode("/omtdx/holders/holder/coupling");
-                            nodereadXXXX.Attributes[0].Value = COUP;
-
-                            // ADD iso CODE ATTRIBUT
-                            XmlAttribute attrXXX = xmlDoc.CreateAttribute("isoCode");
-                            attrXXX.Value = COUPISO;
-                            nodereadXXX.Attributes.SetNamedItem(attrXXX);
+                                // COUPLING Aufruf IN XML
 
 
 
+                                // Change TYPE ATTRIBUT
+                                XmlNode nodereadXXX = xmlDoc.SelectSingleNode("/omtdx/holders/holder/coupling");
+                                nodereadXXX.Attributes[2].Value = "isoAdaptor";
+
+                                // Change TYPE ATTRIBUT
+                                XmlNode nodereadXXXX = xmlDoc.SelectSingleNode("/omtdx/holders/holder/coupling");
+                                nodereadXXXX.Attributes[0].Value = COUP;
+
+                                // ADD iso CODE ATTRIBUT
+                                XmlAttribute attrXXX = xmlDoc.CreateAttribute("isoCode");
+                                attrXXX.Value = COUPISO;
+                                nodereadXXX.Attributes.SetNamedItem(attrXXX);
+
+
+
+                                // TEXT fuer LOG
+                                _ = sb.Append("\n" + " --> ISO coupling generated: " + COUP + " -- " + COUPISO);
+                            }
+
+                            else
+                            {
+                                _ = sb.Append("\n" + " --> ISO coupling already exists !!!!!");
+                            }
+                        }
+
+                        else  // Halter existiert nicht
+                        {
                             // TEXT fuer LOG
-                            _ = sb.Append("\n" + " --> ISO Kupplung erzeugt: " + COUP + " -- " + COUPISO);
+                            _ = sb.Append("\n" + " --> ISO coupling: Holder element does not exist - coupling cannot be created!");
                         }
-
-                        else
-                        {
-                            _ = sb.Append("\n" + " --> ISO Kupplung besteht bereits !!!!!");
-                        }
-                        
 
                         xmlDoc.Save(path1);
 
@@ -1364,48 +1374,60 @@ namespace MIM
 
                             String[] spearator = { " -- "};
 
-                            // using the method
-                            String[] strlist = str.Split(spearator,
-                               StringSplitOptions.RemoveEmptyEntries);
 
 
-                            if (strlist[0] != null)
+                            if (str.Contains(" -- "))   // Abfrage ob String überhaupt vorhanden ist
                             {
-                                // Schreibe neuen Werkzeugnamen
-                                node.Attributes[1].Value = strlist[0];
-                                _ = sb.Append("\n" + " --> SPILT NAME: NameWkz geändert auf -> " + strlist[0]);
+
+                                // using the method
+                                String[] strlist = str.Split(spearator,
+                                   StringSplitOptions.RemoveEmptyEntries);
+
+
+                                if (strlist[0] != null)
+                                {
+                                    // Schreibe neuen Werkzeugnamen
+                                    node.Attributes[1].Value = strlist[0];
+                                    _ = sb.Append("\n" + " --> SPILT NAME: NameWkz geändert auf -> " + strlist[0]);
+                                }
+                                else
+                                {
+                                    _ = sb.Append("\n" + " --> SPLIT NAME do not works");
+                                }
+
+
+
+                                if (strlist[1] != null)
+                                {
+                                    //Create a new node (coupling)
+                                    XmlNode noderead2 = xmlDoc.SelectSingleNode("/omtdx/ncTools/ncTools/ncTool"); // zum Knoten navigieren
+                                    XmlElement elem2 = xmlDoc.CreateElement("param");             // Knoten erstellen
+                                    noderead2.InsertBefore(elem2, noderead2.FirstChild);              // Knoten einfügen
+
+                                    XmlNode noderead22 = xmlDoc.SelectSingleNode("/omtdx/ncTools/ncTools/ncTool/param");    // zum Knoten navigieren
+                                    XmlAttribute attr1 = xmlDoc.CreateAttribute("name");                          // Attribut estellen
+                                    attr1.Value = "comment";                                                   // Wert des Attributes erstellen
+                                    noderead22.Attributes.SetNamedItem(attr1);                                    // Attribut mit Wert einfügen
+
+                                    XmlNode noderead222 = xmlDoc.SelectSingleNode("/omtdx/ncTools/ncTools/ncTool/param");    // zum Knoten navigieren
+                                    XmlAttribute attr2 = xmlDoc.CreateAttribute("value");                          // Attribut estellen
+                                    attr2.Value = strlist[1];                                                   // Wert des Attributes erstellen
+                                    noderead222.Attributes.SetNamedItem(attr2);
+
+
+                                    _ = sb.Append("\n" + " --> SPILT NAME: Kommentar hinzugefügt -> " + strlist[1]);
+                                }
+
+                                else
+                                {
+                                    _ = sb.Append("\n" + " --> SPLIT NAME do not works");
+                                }
                             }
+
+
                             else
                             {
-                                _ = sb.Append("\n" + " --> SPLIT NAME do not works");
-                            }
-
-
-
-                            if (strlist[1] != null)
-                            {
-                                //Create a new node (coupling)
-                                XmlNode noderead2 = xmlDoc.SelectSingleNode("/omtdx/ncTools/ncTools/ncTool"); // zum Knoten navigieren
-                                XmlElement elem2 = xmlDoc.CreateElement("param");             // Knoten erstellen
-                                noderead2.InsertBefore(elem2, noderead2.FirstChild);              // Knoten einfügen
-
-                                XmlNode noderead22 = xmlDoc.SelectSingleNode("/omtdx/ncTools/ncTools/ncTool/param");    // zum Knoten navigieren
-                                XmlAttribute attr1 = xmlDoc.CreateAttribute("name");                          // Attribut estellen
-                                attr1.Value = "comment";                                                   // Wert des Attributes erstellen
-                                noderead22.Attributes.SetNamedItem(attr1);                                    // Attribut mit Wert einfügen
-
-                                XmlNode noderead222 = xmlDoc.SelectSingleNode("/omtdx/ncTools/ncTools/ncTool/param");    // zum Knoten navigieren
-                                XmlAttribute attr2 = xmlDoc.CreateAttribute("value");                          // Attribut estellen
-                                attr2.Value = strlist[1];                                                   // Wert des Attributes erstellen
-                                noderead222.Attributes.SetNamedItem(attr2);
-
-
-                                _ = sb.Append("\n" + " --> SPILT NAME: Kommentar hinzugefügt -> " + strlist[1]);
-                            }
-
-                            else 
-                            {
-                                _ = sb.Append("\n" + " --> SPLIT NAME do not works");
+                                 _ = sb.Append("\n" + " --> SPLIT NAME do not works --> comment does not exist");
                             }
 
 
