@@ -20,6 +20,8 @@ using System.Data;
 using System.Reflection;
 using System.Net;
 using System.Windows.Navigation;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace MIM
 {
@@ -36,7 +38,6 @@ namespace MIM
             SetProperties();
             Info();
 
-            
             worker.WorkerReportsProgress = true;
             worker.DoWork += worker_DoWork;
             worker.ProgressChanged += worker_ProgressChanged;
@@ -47,9 +48,11 @@ namespace MIM
                  Start_sync_Click();
                 }
 
-
-
         }
+
+
+
+
 
 
 
@@ -394,6 +397,7 @@ namespace MIM
         {
             try
             {
+
                 // gui log leeren
                 Settings.Default.syncxml_Info = "";
 
@@ -2176,6 +2180,74 @@ namespace MIM
             }
         }
 
+
+
+        private void source_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                int length = source.Text.Length;
+
+                if (length != 0)
+                {
+                    string looks = source.Text.Substring(source.Text.Length - 1);
+                    string backslash = "\\";
+                    bool b = looks.Contains(backslash);
+
+                    if (b == true){}
+
+                    else
+                    {
+                        source.Text = source.Text + backslash;
+                    }
+                }
+                else{}
+            }
+            catch (Exception)
+            {
+            }
+        }
+        private void destination_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                int length = destination.Text.Length;
+                //MessageBox.Show("  " + length);
+                if (length != 0)
+                {
+                    string looks = destination.Text.Substring(destination.Text.Length - 1);
+                    string backslash = "\\";
+                    bool b = looks.Contains(backslash);
+                    //MessageBox.Show("Zeichen: " + backslash + " Vorhanden: " + looks + "        BOOL: " + b);
+                    if (b == true)
+                    {
+
+                    }
+                    else
+                    {
+                        destination.Text = destination.Text + backslash;
+                        //MessageBox.Show(destination.Text);
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("is null or empty")
+                }
+            }
+            catch (Exception u)
+            {
+                MessageBox.Show("" + u);
+            }
+        }
+
+
+
+
+
+
+
+
+
         #endregion ==============================================  SETTINGS ===============================================
 
 
@@ -2228,6 +2300,8 @@ namespace MIM
                 MessageBox.Show("" + u);
             }
         }
+
+
 
 
 

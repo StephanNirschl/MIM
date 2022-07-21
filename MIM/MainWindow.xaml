@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MIM"
         mc:Ignorable="d"
         xmlns:p="clr-namespace:MIM.Properties"
+        xmlns:u="clr-namespace:MIM.classuni"
         Style="{StaticResource MainWindows}"
         
         Left="{Binding Source={x:Static p:Settings.Default}, Path=MW_LEFT, Mode=TwoWay}"
@@ -38,7 +39,7 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Foreground">
                 <Setter.Value>
-                    <SolidColorBrush Opacity="1" Color="Black"/>
+                    <SolidColorBrush Opacity="1" Color="#FF444444"/>
                 </Setter.Value>
             </Setter>
             <Setter Property="Background" Value="{x:Null}"  >
@@ -65,12 +66,12 @@
         </Style>
     </Window.Resources>
 
+
+
     <!-- Windowsleiste -->
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="35"/>
     </WindowChrome.WindowChrome>
-
-
 
     <Grid >
         <Grid.Background>
@@ -80,7 +81,6 @@
             <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-
         <!-- Windowsleiste -->
         <Grid Grid.Row="0"   VerticalAlignment="Top" Background="#FF4A4A4A">
             <StackPanel Height="25" WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
@@ -89,107 +89,88 @@
                 <Button Background="Transparent" Foreground="Black" FontSize="12" FontWeight="Bold" BorderThickness="0"  Name="ApplicationClose" Content="X" Width="25" Click="ApplicationClose_Click"/>
             </StackPanel>
         </Grid>
-
         <!-- Workspace -->
         <Grid Grid.Row="1">
-
-            
-            
-            <Grid x:Name="grid1" Grid.Column="1" RenderTransformOrigin="9,0.5" >
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
+            <!-- Sidebar -->
+            <StackPanel x:Name="sp_sidebar" Style="{StaticResource sp_sidebar}" Cursor="Hand" Panel.ZIndex="3">
+                <StackPanel.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.9"/>
+                </StackPanel.Background>
 
 
+                <DockPanel Style="{StaticResource sidebar}">
 
-                <!-- Sidebar -->
-                <StackPanel x:Name="sp_sidebar" Style="{StaticResource sp_sidebar}" Cursor="Hand" Panel.ZIndex="3">
-                    <StackPanel.Background>
-                        <SolidColorBrush Color="Black" Opacity="0.9"/>
-                    </StackPanel.Background>
+                    <Image Source="/Images/ico/databaseturn.png" Style="{StaticResource ResourceKey=Imagestyle}" />
+                    <Button x:Name="WKZ" Click="WKZ_Click" Content="WKZ" Style="{StaticResource Flat_Button}" x:FieldModifier="public" Cursor="Hand"/>
+                </DockPanel>
 
+                <DockPanel Style="{StaticResource sidebar}">
+                    <Image Source="/Images/ico/repeat.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
+                    <Button x:Name="VCParser" Click="VCParser_Click" Content="VC-PARSER" Style="{StaticResource Flat_Button}" />
+                </DockPanel>
 
-                    <DockPanel Style="{StaticResource sidebar}">
+                <DockPanel Style="{StaticResource sidebar}">
+                    <Image Source="/Images/ico/file.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
+                    <Button x:Name="NCr" Click="NCr_Click" Content="NC_UPDATE" Style="{StaticResource Flat_Button}" Cursor="Hand" />
+                </DockPanel>
 
-                        <Image Source="/Images/ico/databaseturn.png" Style="{StaticResource ResourceKey=Imagestyle}" />
-                        <Button x:Name="WKZ" Click="WKZ_Click" Content="WKZ" Style="{StaticResource Flat_Button}" x:FieldModifier="public" Cursor="Hand"/>
-                    </DockPanel>
+                <DockPanel Style="{StaticResource sidebar}">
+                    <Image Source="/Images/ico/database.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
+                    <Button x:Name="PM" Click="PM_Click" Content="PROJECT_MANAGER" Style="{StaticResource Flat_Button}" Cursor="Hand" />
+                </DockPanel>
 
-                    <DockPanel Style="{StaticResource sidebar}">
-                        <Image Source="/Images/ico/repeat.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="VCParser" Click="VCParser_Click" Content="VC-PARSER" Style="{StaticResource Flat_Button}" />
-                    </DockPanel>
+                <DockPanel Style="{StaticResource sidebar}">
+                    <Image  Style="{StaticResource ResourceKey=Imagestyle}"/>
+                    <Button x:Name="Btn6"  Content="" Style="{StaticResource Flat_Button}" />
+                </DockPanel>
 
-                    <DockPanel Style="{StaticResource sidebar}">
-                        <Image Source="/Images/ico/file.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="NCr" Click="NCr_Click" Content="NC_UPDATE" Style="{StaticResource Flat_Button}" Cursor="Hand" />
-                    </DockPanel>
-
-                    <DockPanel Style="{StaticResource sidebar}">
-                        <Image Source="/Images/ico/database.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="PM" Click="PM_Click" Content="PROJECT_MANAGER" Style="{StaticResource Flat_Button}" Cursor="Hand" />
-                    </DockPanel>
-
-                    <DockPanel Style="{StaticResource sidebar}">
-                        <Image  Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="Btn6"  Content="" Style="{StaticResource Flat_Button}" />
-                    </DockPanel>
-
-                    <DockPanel Style="{StaticResource sidebar}">
-                        <Image Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="Btn_7"  Content="" Style="{StaticResource Flat_Button}" />
-                    </DockPanel>
+                <DockPanel Style="{StaticResource sidebar}">
+                    <Image Style="{StaticResource ResourceKey=Imagestyle}"/>
+                    <Button x:Name="Btn_7"  Content="" Style="{StaticResource Flat_Button}" />
+                </DockPanel>
 
 
 
 
 
-                    <DockPanel Style="{StaticResource sidebar}">
-                        <Image Source="/Images/ico/settings.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="SETTINGS" Click="SETTINGS_Click" Content="SETTINGS" Style="{StaticResource Flat_Button}" />
+                <DockPanel Style="{StaticResource sidebar}">
+                    <Image Source="/Images/ico/settings.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
+                    <Button x:Name="SETTINGS" Click="SETTINGS_Click" Content="SETTINGS" Style="{StaticResource Flat_Button}" />
 
-                    </DockPanel>
+                </DockPanel>
 
-                    <DockPanel Style="{StaticResource sidebar}">
-                        <Image Source="/Images/ico/idea.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="INFO" Click="INFO_Click" Content="ABOUT" Style="{StaticResource Flat_Button}" />
+                <DockPanel Style="{StaticResource sidebar}">
+                    <Image Source="/Images/ico/idea.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
+                    <Button x:Name="INFO" Click="INFO_Click" Content="ABOUT" Style="{StaticResource Flat_Button}" />
 
-                    </DockPanel>
+                </DockPanel>
 
-                    <DockPanel Style="{StaticResource sidebar}">
-                        <Image Source="/Images/ico/power.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
-                        <Button x:Name="CLOSEd" Click="CLOSEd_Click" Content="CLOSE" Style="{StaticResource Flat_Button}" />
+                <DockPanel Style="{StaticResource sidebar}">
+                    <Image Source="/Images/ico/power.png" Style="{StaticResource ResourceKey=Imagestyle}"/>
+                    <Button x:Name="CLOSEd" Click="CLOSEd_Click" Content="CLOSE" Style="{StaticResource Flat_Button}" />
 
-                    </DockPanel>
+                </DockPanel>
 
-                </StackPanel>
-
-
-
-                <!-- WKZ TAB -->
-                <Grid x:Name="g_wkz" Visibility="Hidden"
+            </StackPanel>
+            <!-- WKZ TAB -->
+            <Grid x:Name="g_wkz" Visibility="Hidden"
                       Margin="75,0,0,0"
                       VerticalAlignment="Stretch" 
                       Panel.ZIndex="-2">
-                      
 
 
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="10"/>
-                    </Grid.RowDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
 
 
-                    <TextBlock  Name="Description_xml" 
+                <TextBlock  Name="Description_xml" 
                                     Text="Rework OM Wkz" 
                                     Foreground="#FFB8B8B8" 
                                     Grid.Row="0" 
@@ -199,49 +180,49 @@
                                     />
 
 
-                    <DockPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <DockPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
-                        <Button Click="Btn_Start_sync_Click"  
+                    <Button Click="Btn_Start_sync_Click"  
                                 x:Name="btn_Start_sync" 
                                 Style="{StaticResource ButtonS1}" Cursor="Hand" 
                                 >START</Button>
 
 
-                        <Label  Name="status"
+                    <Label  Name="status"
                                 Content="STOP"
                                 Width="150" Foreground="#FFD89647" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                                 />
 
 
-                        <Button Click="btn_stop_sync_Click"  
+                    <Button Click="btn_stop_sync_Click"  
                                 x:Name="btn_stop_sync" 
                                 IsEnabled="False" 
                                 Style="{StaticResource ButtonS1}"
                                 >STOP</Button>
 
-                    </DockPanel>
+                </DockPanel>
 
 
-                    <DockPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" >
+                <DockPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" >
 
-                        <Button Click="btn_showlog_Click" 
+                    <Button Click="btn_showlog_Click" 
                                 x:Name="btn_showlog" 
                                 Content="LOGs"
                                 Style="{StaticResource ButtonS1}" />
 
-                    </DockPanel>
+                </DockPanel>
 
 
-                    <DockPanel Grid.Row="3">
+                <DockPanel Grid.Row="3">
 
 
-                        <ScrollViewer  
+                    <ScrollViewer  
                                       Style="{StaticResource ScrollViewer_default}" 
                                       
                                       >
 
 
-                            <TextBlock x:Name="tb_AusgabeDBINFO"                           
+                        <TextBlock x:Name="tb_AusgabeDBINFO"                           
                                        Text="{Binding Source={x:Static p:Settings.Default}, Path=syncxml_Info, Mode=TwoWay}" 
                                        Foreground="#FFB8B8B8"
                                        TextWrapping="Wrap" FontSize="13"  FontFamily="Consolas"  
@@ -251,16 +232,16 @@
                                        
                                        >
 
-                                <TextBlock.Background>
-                                    <SolidColorBrush Color="#FF252525" Opacity="0.4"/>
-                                </TextBlock.Background>
-                            </TextBlock>
+                            <TextBlock.Background>
+                                <SolidColorBrush Color="#FF252525" Opacity="0.4"/>
+                            </TextBlock.Background>
+                        </TextBlock>
 
-                        </ScrollViewer>
+                    </ScrollViewer>
 
 
 
-                        <ListView x:Name="lv" 
+                    <ListView x:Name="lv" 
                                   Style="{StaticResource lv_log}"
                                   Width="205"
                                   Margin="0,0,40,0" 
@@ -268,42 +249,37 @@
                                   
                                   >
 
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource lvItem_log}">
-                                    <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
-                                </Style>
-                            </ListView.ItemContainerStyle>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource lvItem_log}">
+                                <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
 
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="72" HeaderContainerStyle="{StaticResource lv_myHeaderStyle}"></GridViewColumn>
-                                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" Width="135" HeaderContainerStyle="{StaticResource lv_myHeaderStyle}"></GridViewColumn>
-                                </GridView>
-                            </ListView.View>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="72" HeaderContainerStyle="{StaticResource lv_myHeaderStyle}"></GridViewColumn>
+                                <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" Width="135" HeaderContainerStyle="{StaticResource lv_myHeaderStyle}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
 
-                            >
-                        </ListView>
-
-
-
-                    </DockPanel>
+                        >
+                    </ListView>
 
 
 
-                    <!-- SETTINGS -->
-
-
-                </Grid>
+                </DockPanel>
 
 
 
-           
+                <!-- SETTINGS -->
 
+
+            </Grid>
             <Grid x:Name="g_Vc" Visibility="Hidden" 
                       Margin="75,0,0,0"
                       VerticalAlignment="Stretch" 
                       Panel.ZIndex="-2">
-                      
+
 
 
                 <Grid.RowDefinitions>
@@ -399,13 +375,11 @@
 
 
             </Grid>
-
-
             <Grid x:Name="g_NCup" Visibility="Hidden"
                   Margin="75,0,0,0"
                   VerticalAlignment="Stretch"
                   Panel.ZIndex="-2">
-                      
+
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
@@ -429,7 +403,7 @@
                                    TextDecorations="Underline" 
                                    FontFamily="Bahnschrift SemiBold" 
                                    />
-                
+
 
                 <DockPanel Grid.Row="1" HorizontalAlignment="Left">
 
@@ -510,15 +484,7 @@
                                      Grid.Row="5" />
 
 
-                </Grid>
-            
-
             </Grid>
-
-
-        
-        
-        
             <Grid x:Name="g_about" Visibility="Hidden"
                   Margin="75,0,0,0"
                   VerticalAlignment="Stretch"
@@ -724,13 +690,9 @@
                             IsEnabled="True" Cursor="Hand" 
                             Margin="0,0,10,0" 
                             >
-
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="450"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-
-
-
                                 <Grid  Grid.Column="1" >
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="40"></RowDefinition>
@@ -740,33 +702,38 @@
                                         <RowDefinition Height="30"></RowDefinition>
                                         <RowDefinition Height="260"></RowDefinition>
                                     </Grid.RowDefinitions>
-
-
                                     <Label
                                             Content="Settings: Rework OM Wkz"
                                             Grid.Row="0" Grid.Column="1" 
                                             HorizontalAlignment="Center" 
                                             FontSize="20" Background="{x:Null}" Foreground="White"
                                             />
-
                                     <Label
                                             Content="Suchverzeichnis"
                                             Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"
                                             Style="{StaticResource SETTINGs_label}"
                                             />
-
                                     <Grid Grid.Row="2" Grid.Column="1" Margin="10,0,0,0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="410"></ColumnDefinition>
                                             <ColumnDefinition Width="20"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
 
+
+                                     
                                         <TextBox x:Name="source"
                                                  Text="{Binding Source={x:Static p:Settings.Default}, Path=optionsT1_source, Mode=TwoWay}"
                                                  Grid.Row="1"
                                                  Style="{StaticResource SETTINGs_tb}"
-                                                 ToolTip="Backslash am Ende nicht vergessen" 
+                                                 TextChanged="source_TextChanged"
                                                  />
+
+
+
+
+
+
+
                                     </Grid>
 
 
@@ -788,7 +755,7 @@
                                                  Text="{Binding Source={x:Static p:Settings.Default}, Path=optionsT1_destination, Mode=TwoWay}"
                                                  Grid.Row="3" 
                                                  Style="{StaticResource SETTINGs_tb}"
-                                                 ToolTip="Backslash am Ende nicht vergessen"
+                                                 TextChanged="destination_TextChanged"
                                         ></TextBox>
                                     </Grid>
 
